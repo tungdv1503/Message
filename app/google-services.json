@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "657959851662",
+    "project_id": "binderclone-8517f",
+    "storage_bucket": "binderclone-8517f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:657959851662:android:76d761a7461da1a563dbdf",
+        "android_client_info": {
+          "package_name": "com.ph25579.nhantin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqxYy67B_HTDJ6yM3j5pAEgbXCiH1ujUM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
