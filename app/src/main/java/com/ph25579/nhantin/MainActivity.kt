@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -20,9 +21,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var tvName: TextView
     lateinit var btnSignin: Button
     lateinit var auth: FirebaseAuth
-    lateinit var btnLogin: Button
-    lateinit var fstore: FirebaseFirestore
-
+    private lateinit var imgBack: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,10 +30,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun initViews() {
+        imgBack = findViewById(R.id.img_back)
         tvEmail = findViewById(R.id.editTextEmail)
         tvPassword = findViewById(R.id.editTextPassword)
         btnSignin = findViewById(R.id.btn_submit)
-        btnLogin = findViewById(R.id.btn_login)
         tvName = findViewById(R.id.editTextName)
     }
 
@@ -54,14 +53,17 @@ class MainActivity : AppCompatActivity() {
                     this, "Password >= 6 kí tự", Toast.LENGTH_SHORT
                 ).show()
             } else {
-                signin(tvEmail.text.toString().trim(), tvPassword.text.toString().trim(), tvName.text.toString().trim())
+                signin(
+                    tvEmail.text.toString().trim(),
+                    tvPassword.text.toString().trim(),
+                    tvName.text.toString().trim()
+                )
             }
 
         }
-        btnLogin.setOnClickListener {
-            finish()
-            var intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+        imgBack.setOnClickListener {
+            var i = Intent(this, HomeActivity::class.java)
+            startActivity(i)
         }
     }
 
@@ -83,6 +85,8 @@ class MainActivity : AppCompatActivity() {
                 hmap.put("name", name)
                 db.collection("Users").add(hmap).addOnSuccessListener { documentReference ->
                     Log.d("id", "DocumentSnapshot added with ID: ${documentReference.id}")
+                    var i = Intent(this, LoginActivity::class.java)
+                    startActivity(i)
                 }
                     .addOnFailureListener { e ->
                         Log.w("id", "Error adding document", e)

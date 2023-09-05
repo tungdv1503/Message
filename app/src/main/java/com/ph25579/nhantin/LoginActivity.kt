@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -15,6 +16,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var tvPassword: TextView
     lateinit var btnLogin: Button
     lateinit var auth: FirebaseAuth
+    private lateinit var imgBack: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -23,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun initViews() {
+        imgBack = findViewById(R.id.img_back)
         tvEmail = findViewById(R.id.editTextEmail)
         tvPassword = findViewById(R.id.editTextPassword)
         btnLogin = findViewById(R.id.btn_submit)
@@ -32,7 +35,11 @@ class LoginActivity : AppCompatActivity() {
 //        auth = FirebaseAuth.getInstance()
         auth = Firebase.auth
         btnLogin.setOnClickListener { view ->
-            login(tvEmail.text.toString(), tvPassword.text.toString())
+            login(tvEmail.text.toString().trim(), tvPassword.text.toString().trim())
+        }
+        imgBack.setOnClickListener {
+                var i = Intent(this, HomeActivity::class.java)
+                startActivity(i)
         }
     }
 
@@ -45,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
                 i.putExtra("bundle", a)
                 startActivity(i)
             } else {
-                Toast.makeText(this, "Email hoặc password không chính xác", Toast.LENGTH_SHORT)
+                Toast.makeText(this, task.isSuccessful.toString(), Toast.LENGTH_SHORT)
                     .show()
             }
         }

@@ -61,7 +61,6 @@ class FrendActivity : AppCompatActivity() {
                     }
                 }
                 listV.adapter = adapter
-
             }
             .addOnFailureListener { exception ->
                 // Xử lý lỗi nếu có
@@ -70,13 +69,13 @@ class FrendActivity : AppCompatActivity() {
 
     }
 
-    fun nextScreen(user:User) {
+    fun nextScreen(user: User) {
         var i = Intent(this, MessengerActivity::class.java)
         var b = Bundle()
-        b.putString("uid",user.id)
-        b.putString("email",user.email)
-        b.putString("name",user.name)
-        i.putExtra("Bundle",b)
+        b.putString("uid", user.id)
+        b.putString("email", user.email)
+        b.putString("name", user.name)
+        i.putExtra("Bundle", b)
         startActivity(i)
     }
 }

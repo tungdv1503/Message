@@ -1,13 +1,17 @@
 package com.ph25579.nhantin.model
 
-class Message {
+import com.google.firebase.Timestamp
+
+class Messager {
     var massage: String = ""
     var uidSender: String = ""
     var uidReceiver: String = ""
+    lateinit var time :Timestamp
 
-    constructor(massage: String, uidSender: String, uidReceiver: String) {
+    constructor(massage: String, uidSender: String, uidReceiver: String,time:Timestamp) {
         this.massage = massage
         this.uidSender = uidSender
         this.uidReceiver = uidReceiver
+        this.time = time
     }
 }

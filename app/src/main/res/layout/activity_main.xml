@@ -7,7 +7,26 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".MainActivity">
-
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/img_back"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:layout_width="35dp"
+            android:layout_height="35dp"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="20sp"
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
     <TextView
         android:textSize="30sp"
         android:textAlignment="center"
@@ -36,9 +55,4 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit" />
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login" />
 </LinearLayout>

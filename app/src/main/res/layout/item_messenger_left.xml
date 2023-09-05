@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="20dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <TextView
-        android:textAlignment="textStart"
-        android:text=""
-        android:id="@+id/tv_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
     <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -25,6 +20,13 @@
             android:background="@drawable/backgroundtext"
             android:text="abc"
             android:textAlignment="textEnd" />
-    </RelativeLayout>
 
+    </RelativeLayout>
+    <TextView
+        android:textAlignment="textStart"
+        android:text="âfs"
+        android:textSize="10sp"
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>
