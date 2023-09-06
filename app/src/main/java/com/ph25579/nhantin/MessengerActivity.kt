@@ -59,8 +59,9 @@ class MessengerActivity : AppCompatActivity() {
         var uidSender = user?.uid.toString()
         sendButton.setOnClickListener {
             var messageText = messageEditText.text.toString().trim()
-
-            sendtext(messageText, uidSender, uidReceiver)
+            if(!messageText.equals("")){
+                sendtext(messageText, uidSender, uidReceiver)
+            }
             messageEditText.text.clear()
         }
         readtext(uidSender, uidReceiver)
